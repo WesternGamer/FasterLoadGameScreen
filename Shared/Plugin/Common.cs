@@ -1,6 +1,4 @@
-using System;
 using System.IO;
-using Shared.Config;
 using Shared.Logging;
 using Shared.Patches;
 
@@ -10,7 +8,6 @@ namespace Shared.Plugin
     {
         public static ICommonPlugin Plugin { get; private set; }
         public static IPluginLogger Logger { get; private set; }
-        public static IPluginConfig Config { get; private set; }
 
         public static string GameVersion;
         public static string DataDir;
@@ -19,12 +16,9 @@ namespace Shared.Plugin
         {
             Plugin = plugin;
             Logger = plugin.Log;
-            Config = plugin.Config;
 
             GameVersion = gameVersion;
-            DataDir = Path.Combine(storageDir, "PluginTemplate");
-
-            PatchHelpers.Configure();
+            DataDir = Path.Combine(storageDir, "FasterSavesScreen");
         }
     }
 }
