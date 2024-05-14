@@ -13,7 +13,7 @@ namespace ClientPlugin
     {
         [HarmonyPrefix]
         [HarmonyPatch("GetWorldInfoFromDirectory")]
-        private static bool GetWorldInfoFromDirectoryPrefix(string path, List<Tuple<string, MyWorldInfo>> result)
+        private static bool GetWorldInfoFromDirectoryPrefix(string path, bool configOnly, List<Tuple<string, MyWorldInfo>> result)
         {
             if (!Directory.Exists(path))
             {
@@ -23,7 +23,7 @@ namespace ClientPlugin
             Parallel.ForEach(new DirectoryInfo(path).GetDirectories(),
             delegate (DirectoryInfo d)
             {
-                MyWorldInfo worldInfo = MyLocalCache.LoadWorldInfoFromFile(d.FullName);
+                MyWorldInfo worldInfo = MyLocalCache.LoadWorldInfoFromFile(d.FullName, configOnly);
 
                 string sessionPath = d.FullName;
                 if (worldInfo != null)
