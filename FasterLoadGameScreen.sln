@@ -5,14 +5,10 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FasterLoadGameScreen", "ClientPlugin\FasterLoadGameScreen.csproj", "{72800386-797D-42AF-86D0-7BE4272158CE}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{992FF804-F3DC-421F-8062-4BA58E994AE4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{75919FCB-E258-4690-ABD5-44597B3D9D65}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Edit-and-run-before-opening-solution.bat = Edit-and-run-before-opening-solution.bat
 		README.md = README.md
-		ReplaceGuidsAndRename.py = ReplaceGuidsAndRename.py
 	EndProjectSection
 EndProject
 Global
@@ -33,9 +29,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1BDA0BFB-8F7E-4526-99E9-EC3A72B809C6}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Shared\Shared.projitems*{72800386-797d-42af-86d0-7be4272158ce}*SharedItemsImports = 4
-		Shared\Shared.projitems*{992ff804-f3dc-421f-8062-4ba58e994ae4}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
