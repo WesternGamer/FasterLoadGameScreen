@@ -13,7 +13,7 @@ namespace ClientPlugin
     {
         [HarmonyPrefix]
         [HarmonyPatch("GetWorldInfoFromDirectory")]
-        private static bool GetWorldInfoFromDirectoryPrefix(string path, bool configOnly, List<Tuple<string, MyWorldInfo>> result)
+        private static bool GetWorldInfoFromDirectoryPrefix(string path, List<Tuple<string, MyWorldInfo>> result, bool configOnly)
         {
             if (!Directory.Exists(path))
             {
@@ -33,14 +33,18 @@ namespace ClientPlugin
                         worldInfo.SessionName = Path.GetFileName(d.FullName);
                     }
 
-                    
                     if (!string.IsNullOrEmpty(worldInfo.SessionPath))
                     {
                         sessionPath = worldInfo.SessionPath;
                     }
                 }
 
-                result.Add(Tuple.Create(sessionPath, worldInfo));
+                if (worldInfo != null)
+                {
+                    worldInfo.SessionDirectoryPath = sessionPath;
+                    result.Add(Tuple.Create(sessionPath, worldInfo));
+                }
+                
             });
 
             return false;
